@@ -32,3 +32,9 @@ subject_test$id=1:nrow(subject_test)
 test_complete=merge(X_test,Y_test,by.x="id",by.y="id")
 test_complete_all=merge(test_complete,subject_test,by.x="id",by.y="id")
 dataset_complete=rbind(train_complete_all,test_complete_all)
+dataset_meanstd=dataset_complete[,grep("mean|std", colnames(dataset_complete))]
+
+#Set activity name
+activity_labels=read.table("activity_labels.txt")
+
+
